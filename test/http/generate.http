@@ -1,0 +1,18 @@
+POST https://localhost:4242/admin/licenses
+Content-Type: application/json
+Authorization: admin123
+
+{
+  "type": "Trial",
+  "claims": {
+    "username": "Furkan",
+    "address": "Istanbul, Turkey"
+  },
+  "active": true
+}
+
+###
+GET https://localhost:4242/admin/licenses
+Accept: application/json
+
+###

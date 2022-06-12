@@ -3,37 +3,27 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	"github.com/crawlab-team/f-license/controllers"
+	"github.com/gin-gonic/gin"
 
-	"github.com/furkansenharputlu/f-license/config"
-	"github.com/furkansenharputlu/f-license/storage"
-
-	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
+	"github.com/crawlab-team/f-license/config"
+	"github.com/crawlab-team/f-license/storage"
 
 	"log"
 	"net/http"
 )
 
-const Version = "0.1"
-
-func intro() {
-	logrus.Info("f-license ", Version)
-	logrus.Info("Copyright Furkan Şenharputlu 2020")
-	logrus.Info("https://f-license.com")
-}
-
 func main() {
-
-	intro()
-
 	config.Global.Load("config.json")
 	storage.Connect()
 
 	router := GenerateRouter()
 
-	addr := fmt.Sprintf(":%d", config.Global.Port)
+	addr := fmt.Sprintf("0.0.0.0:%d", config.Global.Port)
 	certFile := config.Global.ServerOptions.CertFile
 	keyFile := config.Global.ServerOptions.KeyFile
+
+	log.Println(fmt.Sprintf("server address: %s", addr))
 
 	if config.Global.ServerOptions.EnableTLS {
 		srv := &http.Server{
@@ -48,7 +38,8 @@ func main() {
 	}
 }
 
-func GenerateRouter() *mux.Router {
+func GenerateRouter() *gin.Engine {
+	/**
 	r := mux.NewRouter()
 	// Endpoints called by product owners
 	adminRouter := r.PathPrefix("/admin").Subrouter()
@@ -63,6 +54,12 @@ func GenerateRouter() *mux.Router {
 	// Endpoints called by product instances having license
 	r.HandleFunc("/license/verify", VerifyLicense).Methods(http.MethodPost)
 	r.HandleFunc("/license/ping", Ping).Methods(http.MethodPost)
+	*/
 
-	return r
+	app := gin.New()
+	adminGroup := app.Group("/admin")
+	adminGroup.GET("/licenses", controllers.LicenseController.GetList)
+	adminGroup.POST("/licenses", controllers.LicenseController.PostGenerate)
+
+	return app
 }

@@ -4,7 +4,7 @@ FROM golang:latest
 ENV GO111MODULE=on
 
 # Set the Current Working Directory inside the container
-WORKDIR $GOPATH/src/github.com/furkansenharputlu/f-license
+WORKDIR $GOPATH/src/github.com/crawlab-team/f-license
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .

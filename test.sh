@@ -31,7 +31,7 @@ fi
 
 echo "goimports check is ok!"
 
-for pkg in $(go list github.com/furkansenharputlu/f-license/...);
+for pkg in $(go list github.com/crawlab-team/f-license/...);
 do
     echo "Testing... $pkg"
     go test -race -v $pkg

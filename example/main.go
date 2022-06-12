@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/furkansenharputlu/f-license/client"
+	"github.com/crawlab-team/f-license/client"
 )
 
 // make the license configurable

@@ -12,7 +12,7 @@
 - Activating and inactivating customer license keys
 - **f-cli** tool to manage licenses by terminal
 
-See the latest [Documentation](https://github.com/furkansenharputlu/f-license/wiki).
+See the latest [Documentation](https://github.com/crawlab-team/f-license/wiki).
 
 # How to use
 
@@ -22,7 +22,7 @@ See the latest [Documentation](https://github.com/furkansenharputlu/f-license/wi
 
 ## Start f-license server
 
-1. Create and configure `config.json` file like [sample_config.json](https://github.com/furkansenharputlu/f-license/blob/master/sample_config.json)
+1. Create and configure `config.json` file like [sample_config.json](https://github.com/crawlab-team/f-license/blob/master/sample_config.json)
 2. Run `go build`
 3. Run `./f-license` 
 
@@ -31,7 +31,7 @@ See the latest [Documentation](https://github.com/furkansenharputlu/f-license/wi
 If your app's language is `Go`, you need to add just one line code to your application after importing `client`.
 
 ```go
-import "github.com/furkansenharputlu/f-license/client"
+import "github.com/crawlab-team/f-license/client"
 ```
 
 ### Remote verification
@@ -51,7 +51,7 @@ If you are not using `Go`, you can easily implement their equivalent in your app
 ## CLI usage
 
 1. Run `go build -o f-cli ./cli`
-2. Generate `license.json` like [sample_license.json](https://github.com/furkansenharputlu/f-license/blob/master/sample_license.json)
+2. Generate `license.json` like [sample_license.json](https://github.com/crawlab-team/f-license/blob/master/sample_license.json)
 
 [![asciicast](https://asciinema.org/a/324341.svg)](https://asciinema.org/a/324341)
 

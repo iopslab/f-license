@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/furkansenharputlu/f-license/lcs"
-	"github.com/furkansenharputlu/f-license/storage"
+	"github.com/crawlab-team/f-license/lcs"
+	"github.com/crawlab-team/f-license/storage"
 
 	"github.com/stretchr/testify/assert"
 )
